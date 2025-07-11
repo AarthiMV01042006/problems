@@ -1,0 +1,38 @@
+#include <stdio.h>
+int sum_of_squares(int num) {
+    int sum = 0;
+    while (num > 0) {
+        int digit = num % 10;
+        sum += digit * digit;
+        num /= 10;
+    }
+    return sum;
+}
+
+int main() {
+    int number;              
+    int finalNumber;
+    int cycle_no = 0;        
+
+    printf("Enter a number: ");
+    scanf("%d", &number);
+
+    int current = number;
+
+    // Repeat for max 10 cycles or until current == 1
+    while (cycle_no < 10 && current != 1) {
+        current = sum_of_squares(current);
+        cycle_no++;
+    }
+
+    finalNumber = current; 
+    if (finalNumber == 1) {
+        printf("Number %d is a Happy Number.\n", number);
+    } else {
+        printf("Number %d is NOT a Happy Number after %d cycles. Result: %d\n", number, cycle_no, finalNumber);
+    }
+
+    printf("Cycles executed: %d\n", cycle_no);
+
+    return 0;
+}
