@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+    int sqdnumber = 234;          
+    int sqdNumber_result = 0;
+    int temp = sqdnumber;
+
+    while (temp > 0) {
+        int digit = temp % 10;
+        sqdNumber_result =sqdNumber_result + digit * digit; 
+        temp /= 10;
+    }
+
+    printf("Sum of squares of digits of %d is %d\n", sqdnumber, sqdNumber_result);
+    return 0;
+}
